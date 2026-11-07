@@ -1,0 +1,4 @@
+interface:
+  display_name: "抖音博主知识蒸馏"
+  short_description: "把博主公开视频蒸馏为本地 Obsidian 知识库"
+  default_prompt: "使用 $douyin-creator-distill-zh 将这个抖音博主的公开视频观点、论证方式和内容结构蒸馏到本地 Obsidian。"

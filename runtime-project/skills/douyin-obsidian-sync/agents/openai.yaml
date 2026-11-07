@@ -1,0 +1,4 @@
+interface:
+  display_name: "Douyin to Knowledge"
+  short_description: "Set up and operate the Windows Douyin knowledge workflow"
+  default_prompt: "Use $douyin-obsidian-sync to set up and validate this Douyin-to-Markdown repository on Windows."

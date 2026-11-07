@@ -1,0 +1,30 @@
+{
+  "name": "douyin-obsidian-knowledge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs opencli-plugin/tests/*.test.mjs",
+    "discover": "node src/cli.mjs discover",
+    "freeze": "node src/cli.mjs freeze",
+    "transcribe": "node src/cli.mjs transcribe",
+    "extract": "node src/cli.mjs extract",
+    "write": "node src/cli.mjs write",
+    "sync": "node src/cli.mjs sync",
+    "status": "node src/cli.mjs status",
+    "diagnose": "node src/cli.mjs diagnose",
+    "security-scan": "node --no-warnings scripts/security-scan.mjs",
+    "verify:saved": "node --no-warnings scripts/verify-saved-coverage.mjs",
+    "reprocess-ai": "node --no-warnings scripts/reprocess-ai.mjs",
+    "dedupe-notes": "node --no-warnings scripts/dedupe-notes.mjs",
+    "backup": "node --no-warnings scripts/backup.mjs",
+    "test:skip": "node --no-warnings scripts/test-skip-rules.mjs"
+  },
+  "dependencies": {
+    "@jackwener/opencli": "1.8.6",
+    "opencc-js": "^1.4.2"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

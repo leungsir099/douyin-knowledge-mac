@@ -1,0 +1,85 @@
+{
+  "name": "douyin-knowledge-app",
+  "version": "1.1.2",
+  "description": "抖音收藏 → Obsidian 知识库桌面版：采集、转录、知识提取、笔记浏览、仓颉蒸馏，开箱即用（内置 Python / Whisper / 仓颉）",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --mac dmg --arm64",
+    "dist:win": "electron-builder --win nsis",
+    "dist:mac": "electron-builder --mac dmg --arm64"
+  },
+  "license": "MIT",
+  "author": "eason",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.11"
+  },
+  "build": {
+    "appId": "com.quincy1leung.douyinknowledge",
+    "productName": "抖音知识库",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "cangjie-runner.js",
+      "renderer/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "build-runtime",
+        "to": "dok-runtime",
+        "filter": [
+          "**/*",
+          "!project/var/state.sqlite3",
+          "!project/var/state.sqlite3-*",
+          "!project/var/api-*.json",
+          "!project/var/*.log",
+          "!project/var/knowledge/**",
+          "!project/var/media/**",
+          "!project/var/transcripts/**",
+          "!project/var/creator-knowledge/**",
+          "!project/var/backups/**",
+          "!project/var/*.json",
+          "!project/config.json"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.productivity",
+      "identity": null,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "artifactName": "DouyinKnowledge-${version}-mac-arm64.${ext}"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "leungsir099",
+        "repo": "douyin-knowledge-mac"
+      }
+    ]
+  }
+}
